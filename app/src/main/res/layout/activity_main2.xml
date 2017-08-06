@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.geekbunny.moviequiz.MainActivity2">
+
+    <Button
+        android:id="@+id/answer3"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="410dp"
+        android:layout_above="@+id/answer4"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/answer1"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="313dp"
+        android:layout_above="@+id/answer2"
+        android:layout_alignStart="@+id/answer3" />
+
+    <Button
+        android:id="@+id/answer4"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="-338dp"
+        tools:layout_editor_absoluteY="167dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/answer2"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="361dp"
+        android:layout_above="@+id/answer3"
+        android:layout_alignStart="@+id/answer3" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="341dp"
+        android:layout_height="220dp"
+        android:layout_above="@+id/answer1"
+        android:layout_alignEnd="@+id/answer1"
+        android:text="TextView"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="45dp" />
+
+    <EditText
+        android:id="@+id/username_txt"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/oppenent_txt"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/question"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <ImageView
+        android:id="@+id/u1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/na_small"
+        android:layout_below="@+id/username_txt"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/u2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/u1"
+        android:layout_toEndOf="@+id/u1"
+        app:srcCompat="@drawable/na_small" />
+
+    <ImageView
+        android:id="@+id/u3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/u2"
+        android:layout_toEndOf="@+id/u2"
+        app:srcCompat="@drawable/na_small" />
+
+    <ImageView
+        android:id="@+id/u4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/na_small"
+        android:layout_below="@+id/username_txt"
+        android:layout_toEndOf="@+id/u3" />
+
+    <ImageView
+        android:id="@+id/u5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/u4"
+        android:layout_toEndOf="@+id/u4"
+        app:srcCompat="@drawable/na_small" />
+
+    <ImageView
+        android:id="@+id/o5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/na_small"
+        android:layout_below="@+id/oppenent_txt"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/o4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/o5"
+        android:layout_toStartOf="@+id/o5"
+        app:srcCompat="@drawable/na_small" />
+
+    <ImageView
+        android:id="@+id/o3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/na_small"
+        android:layout_below="@+id/oppenent_txt"
+        android:layout_toStartOf="@+id/o4" />
+
+    <ImageView
+        android:id="@+id/o2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/na_small"
+        android:layout_below="@+id/oppenent_txt"
+        android:layout_toStartOf="@+id/o3" />
+
+    <ImageView
+        android:id="@+id/o1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/o2"
+        android:layout_toStartOf="@+id/o2"
+        app:srcCompat="@drawable/na_small" />
+
+</RelativeLayout>
