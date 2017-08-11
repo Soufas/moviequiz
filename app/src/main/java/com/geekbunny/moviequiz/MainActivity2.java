@@ -80,19 +80,22 @@ public class MainActivity2 extends AppCompatActivity {
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer1.getText().toString());
+
+                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer1.getText().toString(),String.valueOf(i));
                 Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
                 if(i==3){ u=u3;o=o3;}
                 if(i==4){ u=u4;o=o4;}
                 if(i==5){ u=u5;o=o5;}
+
                 if(answer1.getText().equals(mAnswer)){
                    // mScore++;
                     u.setImageResource(R.drawable.ok_small);
                    // score.setText("Score : "+ mScore);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -103,8 +106,9 @@ public class MainActivity2 extends AppCompatActivity {
                 }
                 else {
                     u.setImageResource(R.drawable.fail_small);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -115,22 +119,26 @@ public class MainActivity2 extends AppCompatActivity {
                 }
 
             }
+
         });
         answer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer2.getText().toString());
+                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer2.getText().toString(),String.valueOf(i));
+                Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
                 if(i==3){ u=u3;o=o3;}
                 if(i==4){ u=u4;o=o4;}
                 if(i==5){ u=u5;o=o5;}
+
                 if(answer2.getText().equals(mAnswer)){
                    // mScore++;
                     u.setImageResource(R.drawable.ok_small);
                    // score.setText("Score : "+ mScore);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -141,8 +149,9 @@ public class MainActivity2 extends AppCompatActivity {
                 }
                 else {
                     u.setImageResource(R.drawable.fail_small);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -157,7 +166,8 @@ public class MainActivity2 extends AppCompatActivity {
         answer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer3.getText().toString());
+                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer3.getText().toString(),String.valueOf(i));
+                Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
                 if(i==3){ u=u3;o=o3;}
@@ -167,8 +177,9 @@ public class MainActivity2 extends AppCompatActivity {
                   //  mScore++;
                     u.setImageResource(R.drawable.ok_small);
                    // score.setText("Score : "+ mScore);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -179,8 +190,9 @@ public class MainActivity2 extends AppCompatActivity {
                 }
                 else {
                     u.setImageResource(R.drawable.fail_small);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -195,7 +207,8 @@ public class MainActivity2 extends AppCompatActivity {
         answer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer4.getText().toString());
+                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer4.getText().toString(),String.valueOf(i));
+                Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
                 if(i==3){ u=u3;o=o3;}
@@ -205,8 +218,9 @@ public class MainActivity2 extends AppCompatActivity {
                    // mScore++;
                     u.setImageResource(R.drawable.ok_small);
                     //score.setText("Score : "+ mScore);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -217,8 +231,9 @@ public class MainActivity2 extends AppCompatActivity {
                 }
                 else {
                     u.setImageResource(R.drawable.fail_small);
-                    try {
-                        update_question(i++);
+                    try { if(i!=5){
+                        update_question(i++);}
+                    else { gameover();}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
