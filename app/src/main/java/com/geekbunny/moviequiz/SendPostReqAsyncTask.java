@@ -1,5 +1,6 @@
 package com.geekbunny.moviequiz;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -27,6 +28,14 @@ import java.util.List;
 public class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
     public String question;
     InputStream is;
+    ProgressDialog pDialog;
+
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+
+    }
     @Override
     public String doInBackground(String... params) {
         String paramId = params[0];

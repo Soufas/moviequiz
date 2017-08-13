@@ -34,17 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextAddress"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
-        android:text="Login"
-        android:onClick="insert"/>
+        android:layout_marginTop="36dp"
+        android:onClick="insert"
+        android:text="FastLogin"
+        tools:textAllCaps="false" />
 
-    <TextView
-        android:id="@+id/textViewResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp"
-        android:text="TextView"
-        tools:text="results" />
 </RelativeLayout>

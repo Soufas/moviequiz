@@ -1,6 +1,7 @@
 package com.geekbunny.moviequiz;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,8 @@ public class MainActivity2 extends AppCompatActivity {
 
     Button answer1,answer2,answer3,answer4;
     public Getquestion getquestion;
-    public Answers answers;
+    public GetQuestionsAnswers getresults;
+    //public Answers answers;
     private DBHelper mydb ;
     TextView score,question;
     ImageView u1,u2,u3,u4,u5,o1,o2,o3,o4,o5,u,o;
@@ -29,6 +31,7 @@ public class MainActivity2 extends AppCompatActivity {
     int mScore=0;
     int i;
     String user;
+    String results;
 
 
     @Override
@@ -52,7 +55,8 @@ public class MainActivity2 extends AppCompatActivity {
         o3=(ImageView) findViewById(R.id.o3);
         o4=(ImageView) findViewById(R.id.o4);
         o5=(ImageView) findViewById(R.id.o5);
-        answers=new Answers();
+        //answers=new Answers();
+
         try {
             getquestion = new Getquestion(this.getApplicationContext());
         } catch (ExecutionException e) {
@@ -80,8 +84,14 @@ public class MainActivity2 extends AppCompatActivity {
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer1.getText().toString(),String.valueOf(i));
+                Answers getanswers=new Answers();
+                try {
+                    results=getanswers.execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer1.getText().toString(),String.valueOf(i)).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
@@ -95,7 +105,15 @@ public class MainActivity2 extends AppCompatActivity {
                    // score.setText("Score : "+ mScore);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -108,7 +126,15 @@ public class MainActivity2 extends AppCompatActivity {
                     u.setImageResource(R.drawable.fail_small);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -124,7 +150,14 @@ public class MainActivity2 extends AppCompatActivity {
         answer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer2.getText().toString(),String.valueOf(i));
+                Answers getanswers=new Answers();
+                try {
+                    results=getanswers.execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer2.getText().toString(),String.valueOf(i)).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
@@ -138,7 +171,15 @@ public class MainActivity2 extends AppCompatActivity {
                    // score.setText("Score : "+ mScore);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -151,7 +192,15 @@ public class MainActivity2 extends AppCompatActivity {
                     u.setImageResource(R.drawable.fail_small);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -166,7 +215,14 @@ public class MainActivity2 extends AppCompatActivity {
         answer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer3.getText().toString(),String.valueOf(i));
+                Answers getanswers=new Answers();
+                try {
+                    results=getanswers.execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer3.getText().toString(),String.valueOf(i)).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
@@ -179,7 +235,15 @@ public class MainActivity2 extends AppCompatActivity {
                    // score.setText("Score : "+ mScore);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -192,7 +256,15 @@ public class MainActivity2 extends AppCompatActivity {
                     u.setImageResource(R.drawable.fail_small);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -207,7 +279,14 @@ public class MainActivity2 extends AppCompatActivity {
         answer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Answers().execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer4.getText().toString(),String.valueOf(i));
+                Answers getanswers=new Answers();
+                try {
+                    results=getanswers.execute(String.valueOf(getquestion.id_room),user+"_answer"+String.valueOf(i),answer4.getText().toString(),String.valueOf(i)).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 Log.d("COLUMN",user+"_answer"+String.valueOf(i));
                 if(i==1){ u=u1;o=o1;}
                 if(i==2){ u=u2;o=o2;}
@@ -220,7 +299,15 @@ public class MainActivity2 extends AppCompatActivity {
                     //score.setText("Score : "+ mScore);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
@@ -233,7 +320,15 @@ public class MainActivity2 extends AppCompatActivity {
                     u.setImageResource(R.drawable.fail_small);
                     try { if(i!=5){
                         update_question(i++);}
-                    else { gameover();}
+                    else {
+                        Config.mQuestions=getquestion.mQuestions;
+                        Config.mChoices=getquestion.mChoices;
+                        Config.mCorrect=getquestion.mCorrect;
+                        getresults =new GetQuestionsAnswers(results);
+                        Config.mChoice1=getresults.mChoice1;
+                        Config.mChoice2=getresults.mChoice2;
+                        Intent answers=new Intent(getApplicationContext(),Main3Activity.class);
+                        startActivity(answers);}
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {

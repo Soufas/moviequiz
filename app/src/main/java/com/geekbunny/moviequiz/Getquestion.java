@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 public class Getquestion{
     JSONParser jParser;
     public String theString;
-    private DBHelper mydb ;
+    //private DBHelper mydb ;
     public int id_room;
     public int user_place;
     public String mQuestions[] = new String[5];
@@ -25,7 +25,7 @@ public class Getquestion{
     public String mCorrect[]=new String[5];
 
     public Getquestion(Context context) throws ExecutionException, InterruptedException, JSONException {
-        mydb = new DBHelper(context);
+        //mydb = new DBHelper(context);
         getquestionstring();
     }
 
@@ -35,8 +35,8 @@ public class Getquestion{
         SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
         theString=sendPostReqAsyncTask.execute(Config.USER_ID).get();
         parsequestions(theString);
-        int count= mydb.numberOfRows();
-        Log.d("COUNT", String.valueOf(count));
+        //int count= mydb.numberOfRows();
+        //Log.d("COUNT", String.valueOf(count));
 
     }
 
@@ -69,7 +69,7 @@ public class Getquestion{
             String correct = c.getString("correct");
             mCorrect[i]=correct;
             Log.d("correct", mCorrect[i]);
-            mydb.insertQuestion(question,choice1,choice2,choice3,choice4,correct);
+            //mydb.insertQuestion(question,choice1,choice2,choice3,choice4,correct);
         }
     }
 
